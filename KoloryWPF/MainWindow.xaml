@@ -4,22 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoloryWPF"
+        xmlns:vm="clr-namespace:KoloryWPF.ModelWidoku"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500"
         KeyDown="Window_KeyDown"
         Closed="Window_Closed">
+
+    <Window.Resources>
+        <vm:EdycjaKoloru x:Key="edycjaKoloru" />
+    </Window.Resources>
+
+
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Rectangle x:Name="rectangle"
-                   Grid.Row="0"/>
+                   Grid.Row="0">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding Path=Color, Mode=OneWay}" />            </Rectangle.Fill>
+        </Rectangle>
 
 
 
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="1"
+                    DataContext="{StaticResource edycjaKoloru}">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Slider}">
                     <Setter Property="Margin" Value="0,9,0,9"/>
@@ -27,14 +39,14 @@
             </StackPanel.Resources>
 
             <Slider x:Name="sliderR" 
-                    ValueChanged="sliderR_ValueChanged"
-                    Maximum="255"/>
+                    Maximum="255"
+                    Value="{Binding R, Mode=TwoWay}"/>
             <Slider x:Name="sliderG"
-                    ValueChanged="sliderR_ValueChanged"
-                    Maximum="255"/>
+                    Maximum="255"
+                    Value="{Binding G, Mode=TwoWay}"/>
             <Slider x:Name="sliderB"
-                    ValueChanged="sliderR_ValueChanged"
-                    Maximum="255"/>
+                    Maximum="255"
+                    Value="{Binding B, Mode=TwoWay}"/>
 
 
 
