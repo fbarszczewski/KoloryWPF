@@ -13,6 +13,7 @@
     <Window.Resources>
         <vm:EdycjaKoloru x:Key="edycjaKoloru" />
         <local:ByteToDoubleConverter x:Key="konwersjaByteDouble" />
+        <local:SkładoweRGBToSolidColorBrushConverter x:Key="konwersjaRGBBrush" />
     </Window.Resources>
 
 
@@ -26,7 +27,9 @@
         <Rectangle x:Name="rectangle"
                    Grid.Row="0">
             <Rectangle.Fill>
-                <SolidColorBrush Color="{Binding Path=Color, Mode=OneWay />            </Rectangle.Fill>
+                <MultiBinding Mode="OneWay" Converter="{StaticResource konwersjaRGBBrush}">                    <Binding Path="R" />
+                    <Binding Path="G" />
+                    <Binding Path="B" />                </MultiBinding>            </Rectangle.Fill>
         </Rectangle>
 
 

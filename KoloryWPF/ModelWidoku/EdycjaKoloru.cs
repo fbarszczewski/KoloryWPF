@@ -63,13 +63,7 @@ namespace KoloryWPF.ModelWidoku
             }
         }
 
-        public Color Color
-        {
-            get
-            {
-                return kolor.ToColor();
-            }
-        }
+
 
 
         public void Zapisz()
@@ -79,17 +73,5 @@ namespace KoloryWPF.ModelWidoku
 
 
     }
-    static class Rozszerzenia
-    {
-        public static Color ToColor(this Kolor kolor)
-        {
-            return new Color()
-            {
-                A = 255,
-                R = kolor.R,
-                G = kolor.G,
-                B = kolor.B
-            };
-        }
-    }
+
 }
