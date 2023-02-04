@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
     <Compile Include="Model\Kolor.cs" />
-    <Compile Include="Ustawienia.cs" />
+    <Compile Include="Model\Ustawienia.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

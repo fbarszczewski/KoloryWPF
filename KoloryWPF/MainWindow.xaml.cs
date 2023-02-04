@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using KoloryWPF.Model;
+using KoloryWPF.ModelWidoku;
 namespace KoloryWPF
 {
     /// <summary>
@@ -23,7 +24,7 @@ namespace KoloryWPF
         public MainWindow()
         {
             InitializeComponent();
-            Color kolor = Ustawienia.Czytaj();
+            Color kolor = Ustawienia.Czytaj().ToColor();
             rectangle.Fill = new SolidColorBrush(kolor);
             sliderR.Value = kolor.R;
             sliderG.Value = kolor.G;
@@ -57,7 +58,7 @@ namespace KoloryWPF
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            Ustawienia.Zapisz(KolorProstokąta);
+            Ustawienia.Zapisz(new Kolor(KolorProstokąta.B, KolorProstokąta.G, KolorProstokąta.B));
         }
     }
 
