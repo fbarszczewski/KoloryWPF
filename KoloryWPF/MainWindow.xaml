@@ -15,7 +15,7 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid DataContext="{StaticResource edycjaKoloru}">
         
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,8 +30,7 @@
 
 
 
-        <StackPanel Grid.Row="1"
-                    DataContext="{StaticResource edycjaKoloru}">
+        <StackPanel Grid.Row="1">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type Slider}">
                     <Setter Property="Margin" Value="0,9,0,9"/>
