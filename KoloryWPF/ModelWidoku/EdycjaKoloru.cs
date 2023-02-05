@@ -81,8 +81,6 @@ namespace KoloryWPF.ModelWidoku
                 return resetujCommand;
             }
 
-
-
         }
 
     }
