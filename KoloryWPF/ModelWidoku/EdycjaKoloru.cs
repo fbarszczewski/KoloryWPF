@@ -77,10 +77,20 @@ namespace KoloryWPF.ModelWidoku
         {
             get
             {
-                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                if (resetujCommand == null)
+                {
+                    resetujCommand = new RelayCommand(
+                    argument =>
+                    {
+                        R = 0;
+                        G = 0;
+                        B = 0;
+                    },
+                    argument => (R != 0) || (G != 0) || (B != 0)
+                    );
+                }
                 return resetujCommand;
             }
-
         }
 
     }

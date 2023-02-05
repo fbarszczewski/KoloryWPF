@@ -15,7 +15,10 @@
         <local:ByteToDoubleConverter x:Key="konwersjaByteDouble" />
         <local:SkładoweRGBToSolidColorBrushConverter x:Key="konwersjaRGBBrush" />
     </Window.Resources>
-
+    <Window.DataContext>        <vm:EdycjaKoloru />
+    </Window.DataContext>
+    <Window.InputBindings>
+        <KeyBinding Key="R" Command="{Binding Resetuj}" />    </Window.InputBindings>
 
     <Grid DataContext="{StaticResource edycjaKoloru}"
           Margin="5">

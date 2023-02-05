@@ -57,7 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Konwertery.cs" />
     <Compile Include="ModelWidoku\EdycjaKoloru.cs" />
-    <Compile Include="ModelWidoku\Polecenia.cs" />
+    <Compile Include="ModelWidoku\RelayCommand.cs" />
     <Compile Include="Model\Kolor.cs" />
     <Compile Include="Model\Ustawienia.cs" />
     <Page Include="MainWindow.xaml">
