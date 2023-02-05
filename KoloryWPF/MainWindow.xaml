@@ -25,16 +25,39 @@
             <RowDefinition Height="153*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle x:Name="rectangle"
-                   Grid.Row="0">
-            <Rectangle.Fill>
-                <MultiBinding Mode="OneWay" Converter="{StaticResource konwersjaRGBBrush}">
-                    <Binding Path="R" />
-                    <Binding Path="G" />
-                    <Binding Path="B" />
-                </MultiBinding>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle x:Name="rectangle"
+                   Grid.Column="0"
+                       Margin="0,0,5,0">
+                <Rectangle.Fill>
+                    <MultiBinding Mode="OneWay" Converter="{StaticResource konwersjaRGBBrush}">
+                        <Binding ElementName="sliderR" Path="Value" />
+                        <Binding ElementName="sliderG" Path="Value" />
+                        <Binding ElementName="sliderB" Path="Value" />
+                    </MultiBinding>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="2"
+                        Content="Resetuj"
+                        Margin="0,2.5,0,0"
+                        Command="{Binding Resetuj}"/>
+            </Grid>
+            
+        </Grid>
+  
 
 
 
@@ -49,25 +72,25 @@
                 <TextBlock Text="Red: "/>
                 <TextBlock Text="{Binding ElementName=sliderR,Path=Value}"/>
             </StackPanel >
-            
+
             <Slider x:Name="sliderR" 
                     Maximum="255"
                     Value="{Binding R, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Green: "/>
                 <TextBlock Text="{Binding ElementName=sliderG,Path=Value}"/>
             </StackPanel>
-            
+
             <Slider x:Name="sliderG"
                     Maximum="255"
                     Value="{Binding G, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>
-            
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Blue: "/>
                 <TextBlock Text="{Binding ElementName=sliderB,Path=Value}"/>
             </StackPanel>
-            
+
             <Slider x:Name="sliderB"
                     Maximum="255"
                     Value="{Binding B, Mode=TwoWay, Converter={StaticResource konwersjaByteDouble}}"/>

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace KoloryWPF.ModelWidoku
@@ -33,7 +34,7 @@ namespace KoloryWPF.ModelWidoku
             set
             {
                 kolor.R = value;
-                OnPropertyChanged("R","Color");
+                OnPropertyChanged("R", "Color");
             }
         }
         public byte G
@@ -71,7 +72,18 @@ namespace KoloryWPF.ModelWidoku
             Ustawienia.Zapisz(kolor);
         }
 
+        private ICommand resetujCommand;
+        public ICommand Resetuj
+        {
+            get
+            {
+                if (resetujCommand == null) resetujCommand = new ResetujCommand(this);
+                return resetujCommand;
+            }
+
+
+
+        }
 
     }
-
 }
